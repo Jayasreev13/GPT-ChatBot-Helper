@@ -1,6 +1,5 @@
 import streamlit as st
 import openai
-import config
 from gtts import gTTS  # new import
 from io import BytesIO  # new import
 
