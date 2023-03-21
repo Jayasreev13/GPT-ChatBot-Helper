@@ -28,16 +28,19 @@ def chatbot():
     user_input = st.text_input("Enter a prompt: ")
     if user_input:
         messages.append({"role": "user", "content": user_input})
-    response = openai.ChatCompletion.create(
-        model = 'gpt-3.5-turbo',
-        messages = messages
-    )
-    system_response=response["choices"][0]["message"]["content"]
-    messages.append({"role": "system", "content": system_response})
+    searchbutton = st.button("Search")
+    if searchbutton:
+        response = openai.ChatCompletion.create(
+            model = 'gpt-3.5-turbo',
+            messages = messages
+        )
+        system_response=response["choices"][0]["message"]["content"]
+        messages.append({"role": "system", "content": system_response})
 
-    for message in messages:
-        st.write(message["content"]) 
-    st.audio(text_to_speech(system_response), format="audio/wav")
+        for message in messages:
+            st.write(message["content"]) 
+        st.audio(text_to_speech(system_response), format="audio/wav")
+
 
 
 
