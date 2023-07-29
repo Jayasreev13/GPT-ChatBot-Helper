@@ -3,7 +3,7 @@ import openai
 from gtts import gTTS  # new import
 from io import BytesIO  # new import
 
-openai.api_key = st.secrets["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"]
+openai.api_key = "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"
 
 messages=[ 
     {"role": "system", "content": "You are a helpful assistant."}, 
@@ -30,7 +30,7 @@ def chatbot():
         messages.append({"role": "user", "content": user_input})
     searchbutton = st.button("Search")
     if searchbutton:
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             model = 'gpt-3.5',
             messages = messages
         )
