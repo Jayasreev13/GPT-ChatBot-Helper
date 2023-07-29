@@ -30,7 +30,7 @@ def chatbot():
         messages.append({"role": "user", "content": user_input})
     searchbutton = st.button("Search")
     if searchbutton:
-        response = openai.ChatCompletion.create(
+        response = openai.Completion.create(
             model = 'gpt-3.5',
             messages = messages
         )
