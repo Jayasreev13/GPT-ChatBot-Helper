@@ -3,7 +3,7 @@ import openai
 from gtts import gTTS  # new import
 from io import BytesIO  # new import
 
-openai.api_key = "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"
+openai.api_key ="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"
 
 messages=[ 
     {"role": "system", "content": "You are a helpful assistant."}, 
@@ -40,8 +40,6 @@ def chatbot():
         for message in messages:
             st.write(message["content"]) 
         st.audio(text_to_speech(system_response), format="audio/wav")
-
-
 
 
 chatbot()
